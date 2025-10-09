@@ -1,0 +1,12 @@
+<mvc:View controllerName="helloworld.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox id="vboxDadosUser" class="sapUiSmallMargin">
+                <Text id="txtUser" text="Olá {/user/name}!"></Text>
+                <Input id="inUser" value="{/user/name}" width="250px" placeholder="Digite seu nome ..."></Input>  
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
