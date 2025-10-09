@@ -12,6 +12,27 @@
                 <StandardListItem id="sltComponentes" title="{name}" description="{type}" icon="sap-icon://activity-items" type="Active"/>
             </List>
 
+       <SearchField id="_IDGenSearchField" width="100%" liveChange=".onSearch" class="sapUiSmallMarginTop"/>
+
+            <Table id="_IDGenTable1" items="{/items}" class="sapUiSmallMarginTop" inset="false">
+                <headerToolbar>
+                    <Toolbar id="_IDGenToolbar">
+                        <Title id="_IDGenTitle" text="Tabela (sap.m.Table)"/>
+                    <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                    <Button id="_IDGenButton" text="Ordenar por Nome" press=".onSortName"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="_IDGenColumn"><Text id="_IDGenText" text="ID"/></Column>
+                    <Column id="_IDGenColumn1"><Text id="_IDGenText1" text="Nome"/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem">
+                    <ObjectIdentifier id="_IDGenObjectIdentifier" title="{id}"/>
+                    <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{name}"/>
+                    </ColumnListItem>
+                </items>
+            </Table>
         </content>
     </Page>
 </mvc:View>
