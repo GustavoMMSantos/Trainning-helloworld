@@ -7,6 +7,11 @@
                 <Text id="txtUser" text="Olá {/user/name}!"></Text>
                 <Input id="inUser" value="{/user/name}" width="250px" placeholder="Digite seu nome ..."></Input>  
             </VBox>
+
+           <List id="lstComponentes" headerText="Componentes" items="{/items}" class="sapUiSmallMarginTop" mode="SingleSelectMaster" itemPress=".onItemPress">
+                <StandardListItem id="sltComponentes" title="{name}" description="{type}" icon="sap-icon://activity-items" type="Active"/>
+            </List>
+
         </content>
     </Page>
 </mvc:View>
