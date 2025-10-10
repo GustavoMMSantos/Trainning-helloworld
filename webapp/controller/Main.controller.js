@@ -1,11 +1,15 @@
-sap.ui.define(["sap/ui/core/mvc/Controller", 
-               "sap/ui/model/json/JSONModel", 
-               "sap/m/SelectDialog", 
-               "sap/m/StandardListItem",
-               "sap/ui/model/Filter",
-	           "sap/ui/model/FilterOperator",
-               "helloworld/utils/formatter",
-               "sap/m/MessageToast"], (Controller, JSONModel, SelectDialog, StandardListItem, Filter, FilterOperator, formatter, MessageToast) => {
+/* global sap */
+sap.ui.define([
+  "sap/ui/core/mvc/Controller",
+  "sap/ui/model/json/JSONModel",
+  "sap/m/SelectDialog",
+  "sap/m/StandardListItem",
+  "sap/ui/model/Filter",
+  "sap/ui/model/FilterOperator",
+  "sap/ui/model/Sorter",
+  "helloworld/utils/formatter",
+  "sap/m/MessageToast"
+], (Controller, JSONModel, SelectDialog, StandardListItem, Filter, FilterOperator, Sorter, formatter, MessageToast) => {
   "use strict";
 
   return Controller.extend("helloworld.controller.Main", {
@@ -16,7 +20,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
     onItemPress: function (oEvent) {
       // teste
       const oCtx = oEvent.getParameter("listItem").getBindingContext();
-      sap.m.MessageToast.show("Você tocou: " + oCtx.getProperty("name"));
+      MessageToast.show("Você tocou: " + oCtx.getProperty("name"));
     },
 
     onSearch: function (oEvent) {
@@ -25,9 +29,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
       const oBinding = oList.getBinding("items");
       const aFilters = sQuery
         ? [
-            new sap.ui.model.Filter(
+            new Filter(
               "name",
-              sap.ui.model.FilterOperator.Contains,
+              FilterOperator.Contains,
               sQuery
             ),
           ]
@@ -40,7 +44,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
         this.getView().byId("__xmlview0--table") ||
         this.getView().getContent()[0].getContent()[3]; // fallback
       const oBinding = oTable.getBinding("items");
-      oBinding.sort(new sap.ui.model.Sorter("name", false));
+      oBinding.sort(new Sorter("name", false));
     },
 
     onOpenDialog: function () {
@@ -121,4 +125,3 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
     }
   });
 });
-
