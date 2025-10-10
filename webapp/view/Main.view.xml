@@ -1,6 +1,7 @@
 <mvc:View controllerName="helloworld.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
     <Page id="page" title="{i18n>title}">
         <content>
             <VBox id="vboxDadosUser" class="sapUiSmallMargin">
@@ -41,14 +42,27 @@
                 </items>
             </Table>
 
-   <!-- <t:Table id="_IDGenTable2" xmlns:t="sap.ui.table" rows="{/items}" class="sapUiSmallMarginTop" selectionMode="Single" > 
+   <t:Table id="_IDGenTable2" xmlns:t="sap.ui.table" rows="{/items}" class="sapUiSmallMarginTop" selectionMode="Single" > 
                 <t:columns>
                     <t:Column id="_IDGenColumn2" label="ID"><t:template><Text id="_IDGenText2" text="{id}"/></t:template></t:Column>
                     <t:Column id="_IDGenColumn3" label="Nome"><t:template><Text id="_IDGenText3" text="{name}"/></t:template></t:Column>
                 </t:columns>
-            </t:Table> -->
+            </t:Table>
 
              <Button id="_IDGenButton2" text="Abrir Dialog" press=".onOpenDialog" class="sapUiSmallMarginTop"/>
+
+          <f:SimpleForm id="_IDGenSimpleForm1" editable="true"
+                            layout="ResponsiveGridLayout"
+                            class="sapUiSmallMarginTop">
+                <Label id="_IDGenLabel" text="Nome"/>
+                <Input id="_IDGenInput" value="{/user/name}"/>
+
+                <Label id="_IDGenLabel1" text="País"/>
+                <Input id="_IDGenInput1" value="{/user/country}"/>
+
+                <Label id="_IDGenLabel2" text="Notificações"/>
+                <Switch id="_IDGenSwitch" state="true"/>
+            </f:SimpleForm>
 
         </content>
     </Page>
