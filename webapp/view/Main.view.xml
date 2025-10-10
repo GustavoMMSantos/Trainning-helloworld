@@ -6,6 +6,13 @@
             <VBox id="vboxDadosUser" class="sapUiSmallMargin">
                 <Text id="txtUser" text="Olá {/user/name}!"></Text>
                 <Input id="inUser" value="{/user/name}" width="250px" placeholder="Digite seu nome ..."></Input>  
+            
+            <Input id="inCountry"
+               value="{/user/country}"
+               width="250px"
+               placeholder="Selecione o país..."
+               showValueHelp="true"
+               valueHelpRequest=".onOpenVH"/>
             </VBox>
 
            <List id="lstComponentes" headerText="Componentes" items="{/items}" class="sapUiSmallMarginTop" mode="SingleSelectMaster" itemPress=".onItemPress">
