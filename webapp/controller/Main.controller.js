@@ -26,5 +26,19 @@ onSortName: function () {
   const oBinding = oTable.getBinding("items");
   oBinding.sort(new sap.ui.model.Sorter("name", false));
 },
+
+    onOpenDialog: function () {
+      if (!this._pDialog) {
+        this._pDialog = this.loadFragment({
+          name: "helloworld.view.fragment.HelloDialog",
+        });
+      }
+      this._pDialog.then((d) => d.open());
+    },
+
+    onCloseDialog: function (oEvent) {
+      oEvent.getSource().getParent().close();
+    },
+
     });
 });
