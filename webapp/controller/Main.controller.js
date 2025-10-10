@@ -4,12 +4,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                "sap/m/StandardListItem",
                "sap/ui/model/Filter",
 	           "sap/ui/model/FilterOperator",
-               "helloworld/utils/formatter"], (Controller, JSONModel, SelectDialog, StandardListItem, Filter, FilterOperator, formatter) => {
+               "helloworld/utils/formatter",
+               "sap/m/MessageToast"], (Controller, JSONModel, SelectDialog, StandardListItem, Filter, FilterOperator, formatter, MessageToast) => {
   "use strict";
 
   return Controller.extend("helloworld.controller.Main", {
     formatter: formatter,
-    
+
     onInit() {},
 
     onItemPress: function (oEvent) {
@@ -106,5 +107,17 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
         this._vh.destroy();
       }
     },
+
+    onBusy: function () {
+      var oBusy = this.byId("busy");
+      oBusy.setVisible(true);
+      setTimeout(function () {
+        oBusy.setVisible(false);
+      }, 10000);
+    },
+
+    onSuccess: function () {
+      MessageToast.show("Operação concluída!");
+    }
   });
 });

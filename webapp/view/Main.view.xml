@@ -4,6 +4,15 @@
     xmlns:f="sap.ui.layout.form">
     <Page id="page" title="{i18n>title}">
         <content>
+
+      <Toolbar class="sapUiSmallMarginTop">
+        <Button text="Simular Carregamento" press=".onBusy"/>
+        <ToolbarSpacer/>
+        <Button text="Sucesso" type="Accept" press=".onSuccess"/>
+      </Toolbar>
+                
+                <BusyIndicator id="busy" visible="false"/>
+
             <VBox id="vboxDadosUser" class="sapUiSmallMargin">
                 <Text id="txtUser" text="{path:'/user/name', formatter:'.formatter.greet'}"/>
                 <Input id="inUser" value="{/user/name}" width="250px" placeholder="Digite seu nome ..."></Input>  
