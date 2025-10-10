@@ -5,7 +5,7 @@
     <Page id="page" title="{i18n>title}">
         <content>
             <VBox id="vboxDadosUser" class="sapUiSmallMargin">
-                <Text id="txtUser" text="Olá {/user/name}!"></Text>
+                <Text id="txtUser" text="{path:'/user/name', formatter:'.formatter.greet'}"/>
                 <Input id="inUser" value="{/user/name}" width="250px" placeholder="Digite seu nome ..."></Input>  
             
             <Input id="inCountry"
@@ -14,6 +14,7 @@
                placeholder="Selecione o país..."
                showValueHelp="true"
                valueHelpRequest=".onOpenVH"/>
+               <Text id="_IDGenText5" text="{parts: ['i18n>greet','/user/name'], formatter: 'jQuery.sap.formatMessage'}"  />
             </VBox>
 
            <List id="lstComponentes" headerText="Componentes" items="{/items}" class="sapUiSmallMarginTop" mode="SingleSelectMaster" itemPress=".onItemPress">

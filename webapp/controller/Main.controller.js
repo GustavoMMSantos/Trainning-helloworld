@@ -3,10 +3,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                "sap/m/SelectDialog", 
                "sap/m/StandardListItem",
                "sap/ui/model/Filter",
-	           "sap/ui/model/FilterOperator"], (Controller, JSONModel, SelectDialog, StandardListItem, Filter, FilterOperator) => {
+	           "sap/ui/model/FilterOperator",
+               "helloworld/utils/formatter"], (Controller, JSONModel, SelectDialog, StandardListItem, Filter, FilterOperator, formatter) => {
   "use strict";
 
   return Controller.extend("helloworld.controller.Main", {
+    formatter: formatter,
+    
     onInit() {},
 
     onItemPress: function (oEvent) {
